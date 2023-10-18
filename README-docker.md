@@ -4,13 +4,14 @@ This is a minimized image to run https://github.com/tindy2013/subconverter.
 
 For running this docker, simply use the following commands:
 ```bash
-# run the container detached, forward internal port 25500 to host port 25500
+# 启动命令 run the container detached, forward internal port 25500 to host port 25500
 docker run -d --restart=always -p 25500:25500 tindy2013/subconverter:latest
-# then check its status
+# 版本检查 then check its status
 curl http://localhost:25500/version
 # if you see `subconverter vx.x.x backend` then the container is up and running
 ```
 Or run in docker-compose:
+或者使用docker-compose
 ```yaml
 ---
 version: '3'
@@ -24,6 +25,7 @@ services:
 ```
 
 If you want to update `pref` configuration inside the docker, you can use the following command:
+更新配置文件 命令
 ```bash
 # assume your configuration file name is `newpref.ini`
 curl -F "data=@newpref.ini" http://localhost:25500/updateconf?type=form\&token=password
@@ -31,6 +33,7 @@ curl -F "data=@newpref.ini" http://localhost:25500/updateconf?type=form\&token=p
 ```
 
 For those who want to use their own `pref` configuration and/or rules, snippets, profiles:
+那些想要用他们自己的`pref`配置或规则,snippets和配置的 人们用的命令
 ```txt
 # you can save the files you want to replace to a folder, then copy it into to the docker
 # using the latest build of the official docker
